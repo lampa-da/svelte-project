@@ -13,12 +13,24 @@
     confirmPassword = e.target.value
   }
 
-  const emailsAreEqual = data => {
-    return data.email === data.confirmEmail
+  const validateConfirmEmail = e => {
+    let textbox = e.target
+    if (textbox.value !== email) {
+      textbox.setCustomValidity('The email confirmation does not match.')
+    } else {
+      textbox.setCustomValidity('')
+    }
+    return true
   }
 
-  const passwordsAreEqual = data => {
-    return data.password === data.confirmPassword
+  const validateConfirmPassword = e => {
+    let textbox = e.target
+    if (textbox.value !== password) {
+      textbox.setCustomValidity('The password confirmation does not match.')
+    } else {
+      textbox.setCustomValidity('')
+    }
+    return true
   }
 
   const handleSubmit = e => {
@@ -28,12 +40,6 @@
     for (let field of formData) {
       const [key, value] = field
       data[key] = value
-    }
-    if (!emailsAreEqual(data)) {
-      alert('Emails do not match')
-    }
-    if (!passwordsAreEqual(data)) {
-      alert('Passwords do not match')
     }
     console.log(data)
   }
@@ -54,7 +60,14 @@
     </label>
     <label>
       Confirm email address
-      <input type="email" name="confirmEmail" placeholder="Confirm email address" required bind:value={confirmEmail} />
+      <input
+        type="email"
+        name="confirmEmail"
+        placeholder="Confirm email address"
+        required
+        bind:value={confirmEmail}
+        on:change={validateConfirmEmail}
+      />
     </label>
     <label>
       Password (at least 8 caracteres)
@@ -68,6 +81,7 @@
         placeholder="Confirm Password"
         required
         on:input={handleConfirmPasswordInput}
+        on:input={validateConfirmPassword}
       />
     </label>
     <label>
