@@ -4,9 +4,38 @@
   let password
   let confirmPassword
   let showPassword = false
+  $: type = showPassword ? 'text' : 'password'
 
-  const handleSubmit = () => {
-    console.log(email, confirmEmail, password, confirmPassword, showPassword)
+  const handlePasswordInput = e => {
+    password = e.target.value
+  }
+  const handleConfirmPasswordInput = e => {
+    confirmPassword = e.target.value
+  }
+
+  const emailsAreEqual = data => {
+    return data.email === data.confirmEmail
+  }
+
+  const passwordsAreEqual = data => {
+    return data.password === data.confirmPassword
+  }
+
+  const handleSubmit = e => {
+    const formData = new FormData(e.target)
+    console.log('formData', formData)
+    const data = {}
+    for (let field of formData) {
+      const [key, value] = field
+      data[key] = value
+    }
+    if (!emailsAreEqual(data)) {
+      alert('Emails do not match')
+    }
+    if (!passwordsAreEqual(data)) {
+      alert('Passwords do not match')
+    }
+    console.log(data)
   }
 </script>
 
@@ -21,19 +50,25 @@
     </div>
     <label>
       Email address
-      <input type="email" name="email" id="email" placeholder="Email address" bind:value={email} />
+      <input type="email" name="email" id="email" placeholder="Email address" required bind:value={email} />
     </label>
     <label>
       Confirm email address
-      <input type="email" name="confirmEmail" placeholder="Confirm email address" bind:value={confirmEmail} />
+      <input type="email" name="confirmEmail" placeholder="Confirm email address" required bind:value={confirmEmail} />
     </label>
     <label>
       Password (at least 8 caracteres)
-      <input type="password" name="password" placeholder="Password" bind:value={password} />
+      <input {type} name="password" minlength="8" placeholder="Password" required on:input={handlePasswordInput} />
     </label>
     <label>
       Confirm Password
-      <input type="password" name="confirmPassword" placeholder="Confirm Password" bind:value={confirmPassword} />
+      <input
+        {type}
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        required
+        on:input={handleConfirmPasswordInput}
+      />
     </label>
     <label>
       <input type="checkbox" bind:checked={showPassword} />

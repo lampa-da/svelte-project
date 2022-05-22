@@ -4,7 +4,7 @@
 </script>
 
 <main>
-  <h1>Hello</h1>
+  <h1>COHERE</h1>
   <Header />
   <Form />
 </main>
