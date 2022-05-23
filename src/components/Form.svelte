@@ -50,21 +50,17 @@
     <div class="title-bar-text">Create an account</div>
   </div>
   <div class="window-body">
-    <button>Sign up with Google</button>
-    <div class="orSection">
-      <hr />
-      or
-      <hr />
-    </div>
+    <button id="google-login-btn"><img src="./Google-G-Logo.svg" id="google-logo" />Sign up with Google</button>
+    <div class="orSection">or</div>
     <form on:submit|preventDefault={handleSubmit}>
       <div class="field-row-stacked">
         <label for="email">Email address</label>
         <input id="email" type="email" name="email" placeholder="Email address" required bind:value={email} />
       </div>
       <div class="field-row-stacked">
-        <label for="confirmEmail">Confirm email address</label>
+        <label for="confirm-email">Confirm email address</label>
         <input
-          id="confirmEmail"
+          id="confirm-email"
           type="email"
           name="confirmEmail"
           placeholder="Confirm email address"
@@ -86,10 +82,10 @@
         />
       </div>
       <div class="field-row-stacked">
-        <label for="confirmPassword"> Confirm Password</label>
+        <label for="confirm-password"> Confirm Password</label>
         <input
           {type}
-          id="confirmPassword"
+          id="confirm-password"
           name="confirmPassword"
           placeholder="Confirm Password"
           required
@@ -98,16 +94,29 @@
         />
       </div>
       <div class="field-row">
-        <input id="showPWCheckbox" type="checkbox" bind:checked={showPassword} />
-        <label for="showPWCheckbox">Show Password </label>
+        <input id="show-pw-checkbox" type="checkbox" bind:checked={showPassword} />
+        <label for="show-pw-checkbox">Show Password </label>
       </div>
       <button>Sign up</button>
     </form>
+    <p class="window-footer">Already have an account? <a href="https://cohere.ai/"> Log in</a></p>
   </div>
 </main>
 
 <style>
-  #showPWCheckbox {
+  #show-pw-checkbox {
     display: none;
+  }
+
+  #google-logo {
+    height: 14px;
+  }
+
+  #google-login-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
   }
 </style>

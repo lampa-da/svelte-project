@@ -1,8 +1,10 @@
 <script>
 </script>
 
-<main id="headerContainer">
-  <h1 id="header">COHERE</h1>
+<main>
+  <div id="headerContainer">
+    <h1 id="header">COHERE</h1>
+  </div>
 </main>
 
 <style>
@@ -14,6 +16,7 @@
   }
 
   #headerContainer {
+    height: 28px;
     background-color: black;
     width: fit-content;
     margin-bottom: 3rem;
