@@ -5,14 +5,16 @@ html, body {
 }
 
 body {
-	color: #333;
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 	background-image: linear-gradient(#c774e8, #96cbfe);
-	font-family: 'arial';
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #222222;
 }
+
 
 a {
 	color: rgb(0,100,200);
@@ -31,35 +33,198 @@ label {
 	display: block;
 }
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-}
-
 input:disabled {
 	color: #ccc;
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
+  box-sizing: border-box;
+  border: none;
+  background: #c0c0c0;
+  box-shadow: inset -1px -1px #0a0a0a,
+    inset 1px 1px #ffffff, inset -2px -2px #808080,
+    inset 2px 2px #dfdfdf;
+  border-radius: 0;
 
-button:disabled {
-	color: #999;
+  min-width: 75px;
+  min-height: 23px;
+  padding: 6px;
+	width: -webkit-fill-available;
 }
 
 button:not(:disabled):active {
-	background-color: #ddd;
+  box-shadow: inset -1px -1px #ffffff,
+    inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf,
+    inset 2px 2px #808080;
 }
 
 button:focus {
-	border-color: #666;
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
 }
+
+:disabled {
+  color: #808080;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+
+:disabled + label {
+  color: #808080;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+
+.window {
+  box-shadow: inset -1px -1px #0a0a0a,
+    inset 1px 1px #ffffff, inset -2px -2px #808080,
+    inset 2px 2px #dfdfdf;
+  background: #c0c0c0;
+  padding: 3px;
+	width: 300px;
+}
+
+.title-bar {
+  background: #001284;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-bar-text {
+  color: white;
+  letter-spacing: 0;
+  margin-right: 24px;
+}
+
+.window-body {
+  margin: 14px ;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+}
+
+input[type="checkbox"] + label {
+  position: relative;
+  margin-left: 19px;
+	margin-bottom: 6px;
+}
+
+input[type="checkbox"] + label::before {
+  content: "";
+  position: absolute;
+  left: -19px;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: #ffffff;
+  box-shadow: inset -1px -1px #ffffff,
+    inset 1px 1px #808080, inset -2px -2px #dfdfdf,
+    inset 2px 2px #0a0a0a;
+  margin-right: 6px;
+}
+
+input[type="checkbox"]:checked + label::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 3px;
+  left: -16px;
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='7' viewBox='0 0 7 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z' fill='black'/%3E %3C/svg%3E");
+}
+
+input[type="checkbox"][disabled] + label::before {
+  background: #c0c0c0;
+}
+
+input[type="checkbox"][disabled]:checked + label::after {
+  background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='7' height='7' viewBox='0 0 7 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z' fill='%23808080'/%3E %3C/svg%3E");
+}
+
+input[type="email"] {
+  padding: 6px;
+  border: none;
+  box-shadow: inset -1px -1px #ffffff,
+    inset 1px 1px #808080, inset -2px -2px #dfdfdf,
+    inset 2px 2px #0a0a0a;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+input[type="text"] {
+  padding: 6px;
+  border: none;
+  box-shadow: inset -1px -1px #ffffff,
+    inset 1px 1px #808080, inset -2px -2px #dfdfdf,
+    inset 2px 2px #0a0a0a;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+input[type="password"] {
+  padding: 6px;
+  border: none;
+  box-shadow: inset -1px -1px #ffffff,
+    inset 1px 1px #808080, inset -2px -2px #dfdfdf,
+    inset 2px 2px #0a0a0a;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+input[type="text"],
+select {
+	min-height: 27px;
+  height: 21px;
+}
+
+input[type="text"] {
+  /* For some reason descenders are getting cut off without this */
+  line-height: 2;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  padding-right: 32px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E %3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E %3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z' fill='black'/%3E %3C/svg%3E");
+  background-position: top 2px right 2px;
+  background-repeat: no-repeat;
+  border-radius: 0;
+}
+.field-row {
+  display: flex;
+  align-items: center;
+}
+
+[class^="field-row"] + [class^="field-row"] {
+  margin-top: 6px;
+}
+
+.field-row * + * {
+  margin-left: 6px;
+}
+
+.field-row-stacked {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-row-stacked * + * {
+  margin-top: 6px;
+}
+

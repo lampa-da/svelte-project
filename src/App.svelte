@@ -4,7 +4,6 @@
 </script>
 
 <main>
-  <h1>COHERE</h1>
   <Header />
   <Form />
 </main>

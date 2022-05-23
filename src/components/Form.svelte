@@ -45,52 +45,69 @@
   }
 </script>
 
-<main>
-  <form class="form" on:submit|preventDefault={handleSubmit}>
-    <p>Create an account</p>
+<main class="window">
+  <div class="title-bar">
+    <div class="title-bar-text">Create an account</div>
+  </div>
+  <div class="window-body">
     <button>Sign up with Google</button>
     <div class="orSection">
       <hr />
       or
       <hr />
     </div>
-    <label>
-      Email address
-      <input type="email" name="email" id="email" placeholder="Email address" required bind:value={email} />
-    </label>
-    <label>
-      Confirm email address
-      <input
-        type="email"
-        name="confirmEmail"
-        placeholder="Confirm email address"
-        required
-        bind:value={confirmEmail}
-        on:change={validateConfirmEmail}
-      />
-    </label>
-    <label>
-      Password (at least 8 caracteres)
-      <input {type} name="password" minlength="8" placeholder="Password" required on:input={handlePasswordInput} />
-    </label>
-    <label>
-      Confirm Password
-      <input
-        {type}
-        name="confirmPassword"
-        placeholder="Confirm Password"
-        required
-        on:input={handleConfirmPasswordInput}
-        on:input={validateConfirmPassword}
-      />
-    </label>
-    <label>
-      <input type="checkbox" bind:checked={showPassword} />
-      Show Password
-    </label>
-    <button>Sign Up</button>
-  </form>
+    <form on:submit|preventDefault={handleSubmit}>
+      <div class="field-row-stacked">
+        <label for="email">Email address</label>
+        <input id="email" type="email" name="email" placeholder="Email address" required bind:value={email} />
+      </div>
+      <div class="field-row-stacked">
+        <label for="confirmEmail">Confirm email address</label>
+        <input
+          id="confirmEmail"
+          type="email"
+          name="confirmEmail"
+          placeholder="Confirm email address"
+          required
+          bind:value={confirmEmail}
+          on:change={validateConfirmEmail}
+        />
+      </div>
+      <div class="field-row-stacked">
+        <label for="password"> Password (at least 8 caracteres)</label>
+        <input
+          {type}
+          id="password"
+          name="password"
+          minlength="8"
+          placeholder="Password"
+          required
+          on:input={handlePasswordInput}
+        />
+      </div>
+      <div class="field-row-stacked">
+        <label for="confirmPassword"> Confirm Password</label>
+        <input
+          {type}
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          required
+          on:input={handleConfirmPasswordInput}
+          on:input={validateConfirmPassword}
+        />
+      </div>
+      <div class="field-row">
+        <input id="showPWCheckbox" type="checkbox" bind:checked={showPassword} />
+        <label for="showPWCheckbox">Show Password </label>
+      </div>
+      <button>Sign up</button>
+    </form>
+  </div>
 </main>
 
 <style>
+  #showPWCheckbox {
+    display: none;
+  }
 </style>
