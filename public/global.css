@@ -98,7 +98,7 @@ button:focus {
   bottom: 0;
 }
 
-.footer-window {
+.page-footer {
   box-shadow: inset -1px -1px #0a0a0a,
     inset 1px 1px #ffffff, inset -2px -2px #808080,
     inset 2px 2px #dfdfdf;
@@ -107,10 +107,15 @@ button:focus {
     width: 100%;
     bottom: 0;
     left: 0;
-
     flex-shrink: 0;
     flex-direction: row;
     position: relative;
+}
+
+.form-footer {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 24px;
 }
 
 .title-bar {
@@ -267,21 +272,21 @@ select {
   margin-top: 6px;
 }
 
-.orSection {
+.or-section {
   display: flex;
   align-items: center;
   text-align: center;
 	margin: 14px 0px 14px 0px;
 }
 
-.orSection::before,
-.orSection::after {
+.or-section::before,
+.or-section::after {
   content: '';
   flex: 1;
   border-bottom: 1px solid #808080;
 }
 
-.orSection:not(:empty)::before {
+.or-section:not(:empty)::before {
   margin-right: .25em;
 }
 

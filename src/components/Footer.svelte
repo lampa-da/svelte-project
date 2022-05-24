@@ -1,11 +1,14 @@
 <script>
+  const handleStart = () => {
+    console.log('start')
+  }
 </script>
 
-<div class="footer">
-  <div class="footer-window">
-    <button>&#127754 Start</button>
+<footer class="footer">
+  <div class="page-footer">
+    <button on:click={handleStart}>&#127754 Start</button>
   </div>
-</div>
+</footer>
 
 <style>
 </style>

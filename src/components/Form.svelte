@@ -1,16 +1,24 @@
 <script>
   let email
   let confirmEmail
-  let password
-  let confirmPassword
+  let password = ''
+  let confirmPassword = ''
   let showPassword = false
   $: type = showPassword ? 'text' : 'password'
+
+  const resetForm = () => {
+    email = ''
+    confirmEmail = ''
+    password = ''
+    confirmPassword = ''
+  }
 
   const handlePasswordInput = e => {
     password = e.target.value
   }
   const handleConfirmPasswordInput = e => {
     confirmPassword = e.target.value
+    validateConfirmPassword(e)
   }
 
   const validateConfirmEmail = e => {
@@ -35,24 +43,30 @@
 
   const handleSubmit = e => {
     const formData = new FormData(e.target)
-    console.log('formData', formData)
     const data = {}
     for (let field of formData) {
       const [key, value] = field
       data[key] = value
     }
     console.log(data)
+    resetForm()
+  }
+
+  const loginWithGoogle = () => {
+    console.log('Sign up with Google')
   }
 </script>
 
-<main class="window">
+<div class="window">
   <div class="title-bar">
     <div class="title-bar-text">Create an account</div>
   </div>
   <div class="window-body">
-    <button id="google-login-btn"><img src="./Google-G-Logo.svg" id="google-logo" />Sign up with Google</button>
-    <div class="orSection">or</div>
-    <form on:submit|preventDefault={handleSubmit}>
+    <button id="google-login-btn" on:click={loginWithGoogle}
+      ><img src="./Google-G-Logo.svg" id="google-logo" alt="google" />Sign up with Google</button
+    >
+    <div class="or-section">or</div>
+    <form on:submit|preventDefault={handleSubmit} id="sign-up-form">
       <div class="field-row-stacked">
         <label for="email">Email address</label>
         <input id="email" type="email" name="email" placeholder="Email address" required bind:value={email} />
@@ -73,6 +87,7 @@
         <label for="password"> Password (at least 8 caracteres)</label>
         <input
           {type}
+          value={password}
           id="password"
           name="password"
           minlength="8"
@@ -85,12 +100,12 @@
         <label for="confirm-password"> Confirm Password</label>
         <input
           {type}
+          value={confirmPassword}
           id="confirm-password"
           name="confirmPassword"
           placeholder="Confirm Password"
           required
           on:input={handleConfirmPasswordInput}
-          on:input={validateConfirmPassword}
         />
       </div>
       <div class="field-row">
@@ -99,9 +114,9 @@
       </div>
       <button>Sign up</button>
     </form>
-    <p class="window-footer">Already have an account? <a href="https://cohere.ai/"> Log in</a></p>
+    <p class="form-footer">Already have an account? <a href="https://cohere.ai/"> Log in</a></p>
   </div>
-</main>
+</div>
 
 <style>
   #show-pw-checkbox {
