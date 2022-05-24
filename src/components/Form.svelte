@@ -63,7 +63,7 @@
   </div>
   <div class="window-body">
     <button id="google-login-btn" on:click={loginWithGoogle}
-      ><img src="./Google-G-Logo.svg" id="google-logo" alt="google" />Sign up with Google</button
+      ><img src="./Google-G-Logo.svg" id="google-logo" alt="Google icon" />Sign up with Google</button
     >
     <div class="or-section">or</div>
     <form on:submit|preventDefault={handleSubmit} id="sign-up-form">
@@ -114,7 +114,7 @@
       </div>
       <button>Sign up</button>
     </form>
-    <p class="form-footer">Already have an account? <a href="https://cohere.ai/"> Log in</a></p>
+    <p class="form-footer">Already have an account? <a target="_blank" href="https://cohere.ai/"> Log in</a></p>
   </div>
 </div>
 

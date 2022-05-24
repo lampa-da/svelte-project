@@ -92,7 +92,7 @@ button:focus {
 	width: 300px;
 }
 
-.footer {
+.page-footer-container {
   width: 100%;
   position: absolute;
   bottom: 0;
